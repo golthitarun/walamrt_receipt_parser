@@ -1,0 +1,14 @@
+﻿REPORT
+Initially after reading the task. I was hooping to apply TF-IDF and selecting the top words in the text files after extracting them from the images. But after seeing that the text extraction is not perfect even after applying different methods available, I thought it would be better if I extracted different features based on the general idea of what a walmart receipt should contain. I had went through this task in the following steps. 
+
+At first I took help of the opencv and tesseract libraries to extract the images as perfectly as possible. During this process I tried to remove the contours from the image so that the text can be extracted more accurately. But, by doing this I noticed that I am loosing some of the important data along with the text in some images. Thus there was a need for me to find the better one.
+
+Here, I performed the contour removal task has with the help of canny edge detector. For this part, I took help from some online resources as I was new to opencv. For the classification task I took the data extracted from images without removing the contours as the contour removal task was taking too much time to process.
+
+ Now for the classification part I tried to extract five features for each text file mainly. The features are has_walmart, has_save, has_money, has_live, has_better. Here I took each word in the moto individually because the moto was being extracted in most walmart images even though the walmart word was missed, thus I thought I can take an advantage of that. I applied a fuzzy find algorithm to estimate the presence of the words. 
+
+I also tried to include has_target feature in my feature set but I was not able to get any better results even the target was included in the feature set as shown in my python notebook. 
+
+After checking the accuracy on the validation data from different classifiers, I found SVM classifier to be performing slightly better than other classifiers, so I have tested the test data on the SVM clasifier and stored the results in the result.csv file. Since I was using the SVM classifier I have included the confidence score instead of a Prediction score in the results.csv . 
+
+This was my initial idea on how to proceed through this problem, but as my accuracy on the validation data was high enough from the required accuracy, I am submiting the output using these features.
